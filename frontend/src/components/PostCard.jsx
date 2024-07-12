@@ -74,7 +74,7 @@ const PostCard = ({ item, auto = true }) => {
         <div className='border w-full max-w-9/12 py-3 z-10 rounded-md '>
             <div className='px-4 py-2 flex items-center gap-4 justify-between'>
                 <div className='flex items-center gap-4 relative'>
-                    {onlineUsers.include(item._id) && <div className='absolute text-4xl left-0 bottom-1 animate-pulse  bg-green-500 h-3 w-3 rounded-full '></div>}
+                    {onlineUsers.includes(item._id) && <div className='absolute text-4xl left-0 bottom-1 animate-pulse  bg-green-500 h-3 w-3 rounded-full '></div>}
 
                     <Link to={`/user/${item.owner._id}`}>
                         <img src={item?.owner?.profilePic?.url}
