@@ -42,12 +42,12 @@ const Search = () => {
                 <div className='mt-2 flex flex-col items-center gap-3 justify-center'>
                     <div className='w-full mt-2 flex items-center gap-3  justify-between'>
                         <input type="text" placeholder='Search User...'
-                            className='w-full text-lg px-4 py-3 outline-none focus:outline rounded-md bg-gray-100'
+                            className='w-full text-lg  px-4 py-2 md:py-3 outline-none focus:outline rounded-md bg-gray-100'
                             value={search}
                             onChange={(e) => setSearch(e.target.value)}
                         />
 
-                        <button className=' bg-green-500  font-medium outline-none border-gray-200 border rounded-md py-3 px-3'
+                        <button className=' bg-green-500  font-medium outline-none border-gray-200 border rounded-md py-2 md:py-3 px-3'
                             onClick={handleSearch}>
                             Search
                         </button>

@@ -97,7 +97,7 @@ const UserAccount = () => {
 
                 {show && <Modal value={title === "Followers" ? followersData : followingsData} title={title} setShow={setShow} />}
 
-                <div className='flex items-center gap-12 w-full  md:w-10/12 mx-auto px-2'>
+                <div className='flex items-center gap-2 md:gap-6 lg:gap-12  w-full  md:w-10/12 mx-auto '>
                     <div>
                         <img src={user?.profilePic?.url} alt=""
                             className='w-20 h-20 md:w-40 md:h-40  rounded-full border ' />
@@ -105,7 +105,11 @@ const UserAccount = () => {
                     <div className='flex flex-col justify-center text-md font-semibold '>
                         <h1 className='text-lg font-bold'>{user?.name}</h1>
                         <p>{user?.email}</p>
-                        <p>{user?.gender}</p>
+                        <div className='flex items-center gap-4'>
+                            <p>{user?.gender}</p>
+                            {onlineUsers.includes(user._id) && <div className='text-green-500  '>Online</div>}
+
+                        </div>
 
                         <div className='flex items-center gap-5 py-3'>
                             <div className='cursor-pointer flex flex-col items-center'>
@@ -143,7 +147,7 @@ const UserAccount = () => {
             </div>
 
 
-            <div className='w-11/12 md:w-10/12 lg:w-7/12 mx-auto mt-7'>
+            <div className='w-full md:w-10/12 lg:w-7/12 mx-auto mt-7'>
                 <div className='flex items-center gap-9 justify-center text-lg font-bold'>
                     <span onClick={() => setActiveTab("Posts")} className={`${activeTab === "Posts" && "border-b-4 border-green-500 rounded-b-md"} cursor-pointer`}>Posts</span>
                     <span onClick={() => setActiveTab("Reels")} className={`${activeTab === "Reels" && "border-b-4 border-green-500 rounded-b-md"} cursor-pointer`}>Reels</span>

@@ -76,11 +76,11 @@ const MessagesContainer = ({ setChats, selectedChat }) => {
     }, [messages])
 
     return (
-        <div className='h-full w-full'>
+        <div className='h-full w-full z-10'>
             {
                 selectedChat && (
-                    <div className="flex flex-col justify-center">
-                        <div className="flex w-full h-12 items-center gap-3 bg-gray-300 rounded-md px-4 ">
+                    <div className="flex flex-col justify-center ">
+                        <div className="flex w-full h-[6vh] items-center gap-3 bg-gray-300 rounded-md px-4 pl-10 md:pl-0 ">
                             <img
                                 src={selectedChat.users[0].profilePic.url}
                                 className="w-8 h-8 rounded-full"
@@ -102,7 +102,7 @@ const MessagesContainer = ({ setChats, selectedChat }) => {
                                 (
                                     <>
                                         <div ref={messageCOntainerRef}
-                                            className="flex flex-col gap-4 min-h-[73vh]   md:min-h-[80vh] md:max-h-[80vh] h-full overflow-auto border border-gray-300 bg-gray-100 p-3"
+                                            className="flex flex-col gap-4 h-[74vh]   md:min-h-[81vh] md:max-h-[80vh] overflow-auto border border-gray-300 bg-gray-100 p-3"
                                         >
                                             {messages &&
                                                 messages.map((e, index) => (

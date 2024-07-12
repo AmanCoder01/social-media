@@ -123,7 +123,7 @@ const PostCard = ({ item, auto = true }) => {
             </div>
 
 
-            <div className='px-8 border-t pt-2 '>
+            <div className='px-2 md:px-8 border-t pt-2 '>
                 <div className='flex items-center justify-between mb-2'>
                     <h1 className='flex items-center gap-2'>
                         <AiFillLike />

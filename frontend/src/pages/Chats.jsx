@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import Layout from '../components/Layout'
 import { ChatData } from '../context/ChatContext'
 import axios from 'axios';
-import { MdSearch } from 'react-icons/md';
+import { MdChatBubble, MdSearch } from 'react-icons/md';
 import { Link } from 'react-router-dom';
 import ChatCard from '../components/chats/ChatCard';
 import { UserData } from '../context/UserContext';
@@ -60,12 +60,12 @@ const Chats = () => {
 
     return (
         <Layout>
-            <div className="w-[100%] mx-auto h-full overflow-hidden">
-                <div className="flex mx-auto h-full">
-                    <HiOutlineMenuAlt3 className='text-3xl z-50 block md:hidden' onClick={() => setSidebar(!sidebar)} />
+            <div className="w-[100%] mx-auto h-full overflow-hidden z-10">
+                <div className="flex mx-auto h-full relative">
+                    <MdChatBubble className='absolute text-3xl  bg-green-500 rounded-full h-9 w-9 p-1 z-50 block md:hidden' onClick={() => setSidebar(!sidebar)} />
                     <div className={` h-full border mx-auto  md:block  ${sidebar ? "w-[100%] md:w-[25%] block" : "hidden   md:w-[25%] "}`}>
 
-                        <div className='py-2 px-4'>
+                        <div className='py-2 px-4 pl-12 md:pl-0'>
                             {
                                 search ?
                                     <h1 className='text-lg text-red-500 font-bold cursor-pointer' onClick={() => setSearch(false)}>X</h1> :

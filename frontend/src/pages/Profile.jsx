@@ -10,6 +10,7 @@ import { apiUrl } from '../service';
 import { TbPhotoEdit } from "react-icons/tb";
 import { CiEdit } from "react-icons/ci";
 import { MdDone } from "react-icons/md";
+import { SocketData } from '../context/SocketContext';
 
 
 
@@ -19,6 +20,8 @@ const Profile = () => {
     const [activeTab, setActiveTab] = useState("Posts");
     const [myPost, setMyPost] = useState([]);
     const [myReel, setMyReel] = useState([]);
+    const { onlineUsers } = SocketData();
+
 
     const [show, setShow] = useState(false);
     const [followersData, setFollowersData] = useState([]);
@@ -92,15 +95,14 @@ const Profile = () => {
 
     return (
         <Layout>
-
-            <div className='w-11/12 md:w-10/12 lg:w-6/12 mx-auto border rounded-md shadow-md py-8'>
+            <div className='w-full px-2 md:w-10/12 lg:w-6/12 mx-auto border rounded-md shadow-md py-8'>
 
                 {show &&
 
                     <Modal value={title === "Followers" ? followersData : followingsData} title={title} setShow={setShow} />}
 
-                <div className='flex items-center gap-12 w-full  md:w-10/12 mx-auto '>
-                    <div className='relative'>
+                <div className='flex items-center gap-2 md:gap-6 lg:gap-12  w-full  md:w-10/12 mx-auto '>
+                    <div className='relative '>
                         <img src={filePrev ? filePrev : user?.profilePic?.url} alt=""
                             className={`w-36 h-36  rounded-full border `} />
 
@@ -126,11 +128,15 @@ const Profile = () => {
                         </div>
 
                         <p>{user?.email}</p>
+
                         <p>{user?.gender}</p>
+
+
+
                         <div className='flex items-center gap-5 py-3'>
                             <div className='cursor-pointer flex flex-col items-center'>
                                 <span className='text-lg font-semibold'>{myPost?.length + myReel.length}</span>
-                                <span className=''>Posts</span>
+                                <span className='text-sm md:text:md'>Posts</span>
                             </div>
 
                             <div className='cursor-pointer flex flex-col items-center' onClick={() => {
@@ -138,7 +144,7 @@ const Profile = () => {
                                 setShow(true)
                             }}>
                                 <span className='text-lg font-semibold'>{user?.followers?.length}</span>
-                                <span className=''>Followers</span>
+                                <span className='text-sm md:text:md'>Followers</span>
                             </div>
 
                             <div className='cursor-pointer flex flex-col items-center' onClick={() => {
@@ -146,7 +152,7 @@ const Profile = () => {
                                 setShow(true)
                             }}>
                                 <span className='text-lg font-semibold'>{user?.followings?.length}</span>
-                                <span className=''>Followings</span>
+                                <span className='text-sm md:text:md'>Followings</span>
                             </div>
 
 
@@ -159,7 +165,7 @@ const Profile = () => {
             </div>
 
 
-            <div className='w-11/12 md:w-10/12 lg:w-7/12 mx-auto mt-7'>
+            <div className='w-full md:w-10/12 lg:w-7/12 mx-auto mt-7'>
                 <div className='flex items-center gap-9 justify-center text-lg font-bold'>
                     <span onClick={() => setActiveTab("Posts")} className={`${activeTab === "Posts" && "border-b-4 border-green-500 rounded-b-md"} cursor-pointer`}>Posts</span>
                     <span onClick={() => setActiveTab("Reels")} className={`${activeTab === "Reels" && "border-b-4 border-green-500 rounded-b-md"} cursor-pointer`}>Reels</span>
