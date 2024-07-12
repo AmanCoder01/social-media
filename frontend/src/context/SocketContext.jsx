@@ -2,7 +2,8 @@ import { createContext, useContext, useEffect, useState } from "react";
 import io from "socket.io-client"
 import { UserData } from "./UserContext";
 
-const endPoint = "http://localhost:3000"
+// const endPoint = "http://localhost:3000"
+const endPoint = "https://chat-book-n7ww.onrender.com"
 
 const SocketContext = createContext();
 

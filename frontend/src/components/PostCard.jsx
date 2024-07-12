@@ -9,6 +9,7 @@ import { UserData } from '../context/UserContext'
 import { MdDelete } from "react-icons/md";
 import { Link } from "react-router-dom"
 import { format } from "date-fns"
+import { SocketData } from '../context/SocketContext'
 
 
 const PostCard = ({ item, auto = true }) => {
@@ -21,6 +22,7 @@ const PostCard = ({ item, auto = true }) => {
 
     const { likePost, addComment, deleteComment, deletePost, editCaption } = PostData();
     const { user } = UserData();
+    const { onlineUsers } = SocketData();
 
     const handleLike = (id) => {
         likePost(id);
@@ -71,7 +73,9 @@ const PostCard = ({ item, auto = true }) => {
     return (
         <div className='border w-full max-w-9/12 py-3 z-10 rounded-md '>
             <div className='px-4 py-2 flex items-center gap-4 justify-between'>
-                <div className='flex items-center gap-4'>
+                <div className='flex items-center gap-4 relative'>
+                    {onlineUsers.include(item._id) && <div className='absolute text-4xl left-0 bottom-1 animate-pulse  bg-green-500 h-3 w-3 rounded-full '></div>}
+
                     <Link to={`/user/${item.owner._id}`}>
                         <img src={item?.owner?.profilePic?.url}
                             className='w-10 h-10 rounded-full' alt="img" />
