@@ -5,6 +5,7 @@ import cloudinary from "cloudinary";
 import cookieParser from "cookie-parser"
 import cors from 'cors';
 import { server, app } from "./socket/socket.js";
+import path from "path";
 
 dotenv.config();
 
@@ -41,15 +42,19 @@ import messageRoutes from "./routes/message.route.js"
 
 
 //using routes
-app.get("/", (req, res) => {
-    res.json({
-        message: "Server is working" + port
-    })
-})
+
 app.use("/api/auth", authRoutes);
 app.use("/api/user", userRoutes);
 app.use("/api/post", postRoutes);
 app.use("/api/messages", messageRoutes);
+
+const __dirname = path.resolve();
+
+app.use(express.static(path.join(__dirname, "/frontend/dist")))
+
+app.get("*", (req, res) => {
+    res.sendFile(path.join(__dirname, "frontend", "dist", "index.html"));
+})
 
 
 server.listen(port, () => {
