@@ -15,7 +15,7 @@ const Layout = ({ children }) => {
                     <Sidebar />
                 </div>
 
-                <div className='w-full h-full overflow-auto'>
+                <div className='w-full h-full overflow-auto pb-6 md:pb-0'>
                     {children}
                 </div>
             </div>

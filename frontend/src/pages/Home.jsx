@@ -56,7 +56,7 @@ const Home = () => {
         <Layout>
             <div className='w-full h-full flex '>
                 <div className=' w-full max-w-[100%] lg:max-w-[70%] pt-4'>
-                    <div className='border border-opacity-20 shadow-lg rounded-lg  w-full px-1 md:w-7/12 mx-auto  border-gray-500' >
+                    <div className='border border-opacity-20 shadow-lg rounded-lg  w-full px-2 md:w-7/12 mx-auto  border-gray-500' >
                         <form action="" onSubmit={handleSubmit} className='p-6 flex flex-col gap-4'>
                             <div className='flex items-center gap-4'>
                                 <img src={user?.profilePic?.url}

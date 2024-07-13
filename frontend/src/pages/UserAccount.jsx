@@ -8,12 +8,14 @@ import axios from 'axios';
 import { useParams } from 'react-router-dom';
 import Modal from '../components/Modal';
 import { apiUrl } from '../service';
+import { SocketData } from '../context/SocketContext';
 
 
 
 const UserAccount = () => {
     const { posts, reels, fetchLoading } = PostData();
     const { user: loggedInUser, followUser } = UserData();
+    const { onlineUsers } = SocketData();
 
     const [activeTab, setActiveTab] = useState("Posts");
     const [myPost, setMyPost] = useState([]);
@@ -107,7 +109,7 @@ const UserAccount = () => {
                         <p>{user?.email}</p>
                         <div className='flex items-center gap-4'>
                             <p>{user?.gender}</p>
-                            {onlineUsers.includes(user._id) && <div className='text-green-500  '>Online</div>}
+                            {onlineUsers.includes(user?._id) && <div className='text-green-500  '>Online</div>}
 
                         </div>
 
