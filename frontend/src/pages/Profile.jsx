@@ -95,7 +95,7 @@ const Profile = () => {
 
     return (
         <Layout>
-            <div className='w-full px-2 md:w-10/12 lg:w-6/12 mx-auto border rounded-md shadow-md py-8'>
+            <div className='w-full px-2 md:w-10/12 lg:w-6/12 mx-auto border rounded-md shadow-md py-8 mb-8 md:mb-0'>
 
                 {show &&
 

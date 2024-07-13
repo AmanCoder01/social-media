@@ -27,7 +27,7 @@ const Reels = () => {
     return (
         <Layout>
 
-            <div className='w-full h-full flex '>
+            <div className='w-full h-full flex mb-8 md:mb-0'>
                 <div className=' w-full max-w-[100%] md:max-w-[70%] pt-4'>
                     <div className='w-11/12 md:w-6/12 mx-auto mt-8'>
                         <h1 className='text-2xl font-semibold mb-6'>All Reels</h1>

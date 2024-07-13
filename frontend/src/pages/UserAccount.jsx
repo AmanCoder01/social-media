@@ -95,7 +95,7 @@ const UserAccount = () => {
 
     return (
         <Layout>
-            <div className='w-11/12 md:w-10/12 lg:w-6/12 mx-auto border rounded-md shadow-md py-8'>
+            <div className='w-11/12 md:w-10/12 lg:w-6/12 mx-auto border rounded-md shadow-md py-8 mb-8 md:mb-0'>
 
                 {show && <Modal value={title === "Followers" ? followersData : followingsData} title={title} setShow={setShow} />}
 
